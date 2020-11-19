@@ -1,3 +1,4 @@
+// ===============================
 // The function takes cents value (int) and needs to return the minimum number of coins combination of the same value.
 
 // The function should return an array where
@@ -35,7 +36,38 @@ const coinCombo = (cents) => {
 
 console.log(coinCombo(3));
 
-let x = 5;
-let y = 10;
+// ===============================
 
-console.log(x % y);
+// Nathan loves cycling.
+
+// Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+
+// You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
+
+// For example:
+
+// time = 3 ----> litres = 1
+
+// time = 6.7---> litres = 3
+
+// time = 11.8--> litres = 5
+
+const litres = (time) => Math.floor(time * 0.5);
+
+console.log(litres(11.8));
+
+// ===============================
+
+const longestBestAnswer = (s1, s2) => [...new Set(s1 + s2)].sort().join('');
+
+const longest = (s1, s2) => {
+	const string = [...s1.split(''), ...s2.split('')];
+	const result = string
+		.filter((letter, index) => string.indexOf(letter) === index)
+		.sort()
+		.join('');
+
+	return result;
+};
+
+console.log(longest('xyaabbbccccdefww', 'xxxxyyyyabklmopq'));
