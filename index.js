@@ -1,4 +1,3 @@
-
 // The function takes cents value (int) and needs to return the minimum number of coins combination of the same value.
 
 // The function should return an array where
@@ -21,20 +20,20 @@
 const coinCombo = (cents) => {
 	const coins = [];
 
-	let quarters = Math.round(cents / 25);
+	let quarters = parseInt(cents / 25);
 	cents = cents % 25;
-	let dimes = Math.round(cents / 10);
+	let dimes = parseInt(cents / 10);
 	cents = cents % 10;
-	let nickels = Math.round(cents / 5);
+	let nickels = parseInt(cents / 5);
 	cents = cents % 5;
-	let pennies = Math.round(cents / 1);
+	let pennies = parseInt(cents / 1);
 
 	coins.push(pennies, nickels, dimes, quarters);
 
 	return coins;
 };
 
-console.log(coinCombo(30));
+console.log(coinCombo(3));
 
 let x = 5;
 let y = 10;
