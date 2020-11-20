@@ -137,3 +137,8 @@ function disemvowel(str) {
 }
 
 console.log(disemvowel(string));
+
+// Best Practices
+// function disemvowel(str) {
+// 	return str.replace(/[aeiou]/gi, '');
+// }
