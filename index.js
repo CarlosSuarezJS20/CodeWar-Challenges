@@ -1,4 +1,5 @@
-// =============================== 1
+// Task 1
+
 // The function takes cents value (int) and needs to return the minimum number of coins combination of the same value.
 
 // The function should return an array where
@@ -36,7 +37,7 @@ const coinCombo = (cents) => {
 
 console.log(coinCombo(3));
 
-// =============================== 2
+// Task 2
 
 // Nathan loves cycling.
 
@@ -56,7 +57,7 @@ const litres = (time) => Math.floor(time * 0.5);
 
 console.log(litres(11.8));
 
-// =============================== 3
+// Task 3
 
 const longestBestAnswer = (s1, s2) => [...new Set(s1 + s2)].sort().join('');
 
@@ -72,7 +73,7 @@ const longest = (s1, s2) => {
 
 console.log(longest('xyaabbbccccdefww', 'xxxxyyyyabklmopq'));
 
-//  =============================== 4
+//  Task 4
 
 // This time no story, no theory. The examples below show you how to write function accum:
 
@@ -104,3 +105,35 @@ function accum(s) {
 }
 
 console.log(accum('abcdeU'));
+
+// Best Practice:
+
+// function accum(s) {
+// 	return s
+// 		.split('')
+// 		.map((c, i) => c.toUpperCase() + c.toLowerCase().repeat(i))
+// 		.join('-');
+// }
+
+// Task 5
+
+// Trolls are attacking your comment section!
+
+// A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+// Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+// For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+// Note: for this kata y isn't considered a vowel.
+
+const string = 'This website is for losers LOL!';
+
+function disemvowel(str) {
+	return str
+		.split('')
+		.filter((l) => !/^[aeiou]$/i.test(l))
+		.join('');
+}
+
+console.log(disemvowel(string));
