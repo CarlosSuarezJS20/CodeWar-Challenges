@@ -1,4 +1,4 @@
-// ===============================
+// =============================== 1
 // The function takes cents value (int) and needs to return the minimum number of coins combination of the same value.
 
 // The function should return an array where
@@ -36,7 +36,7 @@ const coinCombo = (cents) => {
 
 console.log(coinCombo(3));
 
-// ===============================
+// =============================== 2
 
 // Nathan loves cycling.
 
@@ -56,7 +56,7 @@ const litres = (time) => Math.floor(time * 0.5);
 
 console.log(litres(11.8));
 
-// ===============================
+// =============================== 3
 
 const longestBestAnswer = (s1, s2) => [...new Set(s1 + s2)].sort().join('');
 
@@ -71,3 +71,36 @@ const longest = (s1, s2) => {
 };
 
 console.log(longest('xyaabbbccccdefww', 'xxxxyyyyabklmopq'));
+
+//  =============================== 4
+
+// This time no story, no theory. The examples below show you how to write function accum:
+
+// accum("abcd") -> "A-Bb-Ccc-Dddd"
+// a b c d
+// A(toUpperCase) 1
+// B(toUpperCase) 2
+// C(toUpperCase) 3
+// D(toUpperCase) 4
+
+// accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt") -> "C-Ww-Aaa-Tttt"
+
+function accum(s) {
+	const sArray = s.split('');
+	const stringArr = [];
+	let times = 0;
+
+	for (let letter of sArray) {
+		if (letter !== letter.toUpperCase()) {
+			stringArr.push(`${letter.toUpperCase()}${letter.repeat(times++)}-`);
+		} else {
+			stringArr.push(`${letter}${letter.toLowerCase().repeat(times++)}-`);
+		}
+	}
+	let string = stringArr.join('');
+
+	return string.substring(0, string.length - 1);
+}
+
+console.log(accum('abcdeU'));
