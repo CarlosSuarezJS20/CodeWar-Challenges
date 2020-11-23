@@ -148,6 +148,7 @@ console.log(disemvowel(string));
 
 function squared(num) {
 	return num * num;
+}
 
 console.log(squared(4));
 
@@ -171,15 +172,11 @@ function lifePathNumber(dateOfBirth) {
 	let lifenum = dateOfBirth.replace(/-/g, '');
 	while (lifenum.length > 1) {
 		let lifenumArray = lifenum.split('').map((c) => +c);
-		console.log(lifenumArray);
+
 		lifenum = lifenumArray.reduce((c, p) => c + p).toString();
 	}
 
 	return +lifenum;
 }
 
-console.log(
-	lifePathNumber(
-		'999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999'
-	)
-);
+console.log(lifePathNumber('1879-03-14'));
