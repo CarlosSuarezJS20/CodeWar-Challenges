@@ -152,6 +152,8 @@ function squared(num) {
 
 console.log(squared(4));
 
+// Task 6
+
 // A person's Life Path Number is calculated by adding each individual number in that person's date of birth, untill it is reduced to a single digit number.
 
 // For example, Albert Einstein's birthday is March 14, 1879. The calculation of his Life Path Number would look like this:
@@ -181,6 +183,8 @@ function lifePathNumber(dateOfBirth) {
 
 console.log(lifePathNumber('1879-03-14'));
 
+// Task 7
+
 // Description
 // For this Kata you will be given an array of numbers and another number n. You have to find the sum of the n largest numbers of the array and the product of the n smallest numbers of the array, and compare the two.
 
@@ -207,3 +211,73 @@ function sumOrProduct(array, n) {
 }
 
 console.log(sumOrProduct([10, 41, 8, 16, 20, 36, 9, 13, 20], 3));
+
+// Task 8
+// An ordered sequence of numbers from 1 to N is given. One number might have deleted from it, then the remaining numbers were mixed. Find the number that was deleted.
+
+// Example:
+
+// The starting array sequence is [1,2,3,4,5,6,7,8,9]
+// The mixed array with one deleted number is [3,2,4,6,7,8,1,9]
+// Your function should return the int 5.
+// If no number was deleted from the array and no difference with it, your function should return the int 0.
+
+// Note that N may be 1 or less (in the latter case, the first array will be []).
+
+function findDeletedNumber(arr, mixArr) {
+	let array = arr.filter((num) => {
+		return mixArr.indexOf(num) === -1;
+	});
+	const [num] = array;
+
+	return num === undefined ? 0 : num;
+}
+
+console.log(
+	findDeletedNumber([1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 9, 7, 4, 6, 2, 3, 8])
+);
+
+// best Practice: function findDeletedNumber(arr, mixArr) {
+//   return arr.filter(v=>mixArr.indexOf(v)==-1)[0]||0
+// }
+
+// Task 9
+// Cheesy Cheeseman just got a new monitor! He is happy with it, but he just discovered that his old desktop wallpaper no longer fits. He wants to find a new wallpaper, but does not know which size wallpaper he should be looking for, and alas, he just threw out the new monitor's box. Luckily he remembers the width and the aspect ratio of the monitor from when Bob Mortimer sold it to him. Can you help Cheesy out?
+
+// The Challenge
+// Given an integer width and a string ratio written as WIDTH:HEIGHT, output the screen dimensions as a string written as WIDTHxHEIGHT.
+
+//Formula is = 1024 / (4/3)
+
+function findScreenHeight(width, ratio) {
+	let tvSize;
+
+	if (ratio.split('').length === 3) {
+		const ratioInNumber = ratio
+			.replace(/:/g, '')
+			.split('')
+			.map((elem) => +elem)
+			.reduce((c, p) => c / p);
+		console.log('here');
+
+		tvSize = `${width}x${width / ratioInNumber}`;
+		return tvSize;
+	}
+	if (ratio.split('').length === 4) {
+		const ratioInNumber = ratio.split('');
+		const slice1 = +ratioInNumber.slice(0, 2).join('');
+		const slice2 = +ratioInNumber.slice(-1).toString();
+		console.log(slice1 / slice2);
+		const tvSize = `${width}x${width / (slice1 / slice2)}`;
+		console.log('there');
+
+		return tvSize;
+	}
+}
+
+// BEST PRACTICE
+// function findScreenHeight(width, ratio) {
+//   const [widthRatio, heightRatio] = ratio.split(':')
+//   const height = width / widthRatio * heightRatio
+//   return width + 'x' + height
+// }
