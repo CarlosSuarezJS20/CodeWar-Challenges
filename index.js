@@ -37,6 +37,8 @@ const coinCombo = (cents) => {
 
 console.log(coinCombo(3));
 
+console.log('==============================');
+
 // Task 2
 
 // Nathan loves cycling.
@@ -150,6 +152,8 @@ function squared(num) {
 	return num * num;
 }
 
+console.log('==============================');
+
 console.log(squared(4));
 
 // Task 6
@@ -183,6 +187,8 @@ function lifePathNumber(dateOfBirth) {
 
 console.log(lifePathNumber('1879-03-14'));
 
+console.log('==============================');
+
 // Task 7
 
 // Description
@@ -211,6 +217,8 @@ function sumOrProduct(array, n) {
 }
 
 console.log(sumOrProduct([10, 41, 8, 16, 20, 36, 9, 13, 20], 3));
+
+console.log('==============================');
 
 // Task 8
 // An ordered sequence of numbers from 1 to N is given. One number might have deleted from it, then the remaining numbers were mixed. Find the number that was deleted.
@@ -241,6 +249,8 @@ console.log(
 //   return arr.filter(v=>mixArr.indexOf(v)==-1)[0]||0
 // }
 
+console.log('==============================');
+
 // Task 9
 // Cheesy Cheeseman just got a new monitor! He is happy with it, but he just discovered that his old desktop wallpaper no longer fits. He wants to find a new wallpaper, but does not know which size wallpaper he should be looking for, and alas, he just threw out the new monitor's box. Luckily he remembers the width and the aspect ratio of the monitor from when Bob Mortimer sold it to him. Can you help Cheesy out?
 
@@ -258,7 +268,6 @@ function findScreenHeight(width, ratio) {
 			.split('')
 			.map((elem) => +elem)
 			.reduce((c, p) => c / p);
-		console.log('here');
 
 		tvSize = `${width}x${width / ratioInNumber}`;
 		return tvSize;
@@ -275,12 +284,16 @@ function findScreenHeight(width, ratio) {
 	}
 }
 
+console.log(findScreenHeight(1600, '4:3'));
+
 // BEST PRACTICE
 // function findScreenHeight(width, ratio) {
 //   const [widthRatio, heightRatio] = ratio.split(':')
 //   const height = width / widthRatio * heightRatio
 //   return width + 'x' + height
 // }
+
+console.log('==============================');
 
 // Task 10
 
@@ -326,3 +339,72 @@ function menFromBoys(arr) {
 }
 
 console.log(menFromBoys([82, 91, 72, 76, 76, 100, 8]));
+
+// Best Practice
+
+// function menFromBoys(arr) {
+// 	arr = Array.from(new Set(arr));
+// 	let odd = arr.filter((a) => a % 2).sort((a, b) => b - a);
+// 	let even = arr.filter((a) => a % 2 === 0).sort((a, b) => a - b);
+// 	return even.concat(odd);
+// }
+
+console.log('==============================');
+
+// Task 10
+
+// Your task is to write a function called valid_spacing() or validSpacing() which checks if a string has valid spacing. The function should return either True or False.
+
+// For this kata, the definition of valid spacing is one space between words, and no leading or trailing spaces. Below are some examples of what the function should return.
+
+// 'Hello world' = true;
+// ' Hello world' = false;
+// 'Hello world  ' = false;
+// 'Hello  world' = false;
+// 'Hello' = true;
+
+// // Even though there are no spaces, it is still valid because none are needed
+
+// 'Helloworld' = true;
+// // true because we are not checking for the validity of words.
+// 'Helloworld ' = false;
+// ' ' = false;
+// '' = true;
+
+// Note - there will be no punctuation or digits in the input string, only letters.
+
+function validSpacing(s) {
+	const string = s.toUpperCase().split('');
+	let numSpaces = 0;
+	let validation;
+	for (let character of string) {
+		if (character === ' ') {
+			numSpaces += 1;
+		}
+	}
+
+	if (string.lastIndexOf(' ', string.length) === 0) {
+		validation = false;
+	}
+
+	if (string.lastIndexOf('', string.length) === 0) {
+		validation = true;
+	}
+
+	if (numSpaces <= 1) {
+		validation = true;
+	}
+
+	if (numSpaces > 1) {
+		validation = false;
+	}
+
+	return validation;
+}
+
+// best practices
+// function validSpacing(s) {
+// 	return s.trim() == s && !s.includes('  ');
+// }
+
+console.log(validSpacing(' FbKwy'));
