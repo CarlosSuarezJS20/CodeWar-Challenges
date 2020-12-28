@@ -442,3 +442,65 @@ console.log(gimme([10, 5, 14]));
 // var gimme = function (inputArray) {
 //   return inputArray.indexOf(inputArray.slice(0).sort(function(a,b) { return a-b; })[1]);
 // };
+
+console.log('==============================');
+
+// Task 12
+
+// Javascript: return multiples into an array
+const multiples = (s1, s2, s3) => {
+	const result = [];
+	for (let i = 1; i < s3; i++) {
+		result.push(i);
+	}
+
+	const filtered = result.filter((n) => n % s1 === 0 && n % s2 === 0);
+
+	return filtered;
+};
+
+console.log(multiples(2, 4, 40));
+
+// best Practice:
+
+// Javascript: return multiples into an array
+// function multiples(s1,s2,s3){
+//    let arr = [];
+
+//   for (let i = 1; i < s3; i++){
+//     if(i % s1 == 0 && i % s2 == 0)
+//      arr.push(i);
+//   }
+//   return arr;
+// }
+
+console.log('==============================');
+
+// Task 13
+
+// In this Kata, you will be given an array of unique elements, and your task is to rearrange the values so that the first max value is followed by the first minimum, followed by second max value then second min value, etc.
+
+// For example:
+
+// solve([15,11,10,7,12]) = [15,7,12,10,11]
+// The first max is 15 and the first min is 7. The second max is 12 and the second min is 10 and so on.
+
+// More examples in the test cases.
+
+// Good luck!
+
+const solve = (arr) => {
+	const result = [];
+
+	arr.sort((a, b) => a - b);
+	for (let i = 0, j = arr.length - 1; i <= j; i++, j--) {
+		if (i != j) result.push(arr[j]), result.push(arr[i]);
+		else result.push(arr[i]);
+	}
+
+	return result;
+};
+
+console.log(solve([15, 11, 10, 7, 12]));
+
+// [15, 7, 12, 10, 11];
