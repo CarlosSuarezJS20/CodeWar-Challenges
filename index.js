@@ -492,7 +492,7 @@ console.log('==============================');
 const solve = (arr) => {
 	const result = [];
 
-	arr.sort((a, b) => a - b);
+	arr.sort((a, b) => a - b); //[7, 10, 11, 12, 15]; 
 	for (let i = 0, j = arr.length - 1; i <= j; i++, j--) {
 		if (i != j) result.push(arr[j]), result.push(arr[i]);
 		else result.push(arr[i]);
