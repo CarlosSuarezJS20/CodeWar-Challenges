@@ -492,7 +492,7 @@ console.log('==============================');
 const solve = (arr) => {
 	const result = [];
 
-	arr.sort((a, b) => a - b); //[7, 10, 11, 12, 15]; 
+	arr.sort((a, b) => a - b); //[7, 10, 11, 12, 15];
 	for (let i = 0, j = arr.length - 1; i <= j; i++, j--) {
 		if (i != j) result.push(arr[j]), result.push(arr[i]);
 		else result.push(arr[i]);
@@ -504,3 +504,35 @@ const solve = (arr) => {
 console.log(solve([15, 11, 10, 7, 12]));
 
 // [15, 7, 12, 10, 11];
+
+console.log('==============================');
+
+// Task 14
+
+// The function must return the truncated version of the given string up to the given limit followed by "..." if the result is shorter than the original. Return the same string if nothing was truncated.
+
+// Example:
+
+// solution('Testing String', 3) --> 'Tes...'
+// solution('Testing String', 8) --> 'Testing ...'
+// solution('Test', 8)           --> 'Test'
+
+const limitString = (string, limit) => {
+	if (string.length <= limit) {
+		return string;
+	}
+
+	const str = string.split('');
+	str.length = limit;
+	const newString = str.join('');
+
+	return `${newString}...`;
+};
+
+console.log(limitString('Carlos is a hero', 4));
+
+// BEST PRACTICES:
+
+// function solution(string, limit) {
+// 	return string.length > limit ? string.substr(0, limit) + '...' : string;
+// }
