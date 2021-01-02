@@ -536,3 +536,27 @@ console.log(limitString('Carlos is a hero', 4));
 // function solution(string, limit) {
 // 	return string.length > limit ? string.substr(0, limit) + '...' : string;
 // }
+
+console.log('==============================');
+
+// Task 14
+
+// You have to write a function which returns unique numbers array. You don't need to validate input arg arr. Retain the original order of the input.
+
+// Examples:
+
+// uniqueNumbers([1,1,2,2]) => [1,2]
+// uniqueNumbers([1,2,3,1]) => [1,2,3]
+
+const uniqueNumbers = (numbersArray) => {
+	const newArray = numbersArray.filter((num, index) => {
+		console.log(numbersArray.indexOf(num) === index);
+		return numbersArray.indexOf(num) === index;
+	});
+
+	return newArray;
+};
+
+console.log(uniqueNumbers(['car', 'car', 'moto', 'bicycle']));
+
+// Best Practices: const uniqueNumbers = numbers => [...new Set(numbers)];
